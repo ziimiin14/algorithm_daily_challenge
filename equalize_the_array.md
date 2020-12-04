@@ -23,17 +23,20 @@ The next line contains **n** space-separated integers **arr[i]**.
 - **1 &le; arr[i] &le; 100**
 
 
-Output Format
+### Output Format
 
 Print a single integer that denotes the minimum number of elements Karl must delete for all elements in the array to be equal.
 
-Sample Input
-
+### Sample Input
+```
 5
 3 3 2 1 3
-Sample Output
+```
+### Sample Output
+```
+2  
+````
 
-2   
-Explanation
+### Explanation
 
-Array . If we delete  and , all of the elements in the resulting array, , will be equal. Deleting these  elements is minimal. Our only other options would be to delete  elements to get an array of either  or .
+Array **arr = [3,3,2,1,3]**. If we delete arr[2] = 2 and arr[3] = 1, all of the elements in the resulting array, A' = [3,3,3], will be equal. Deleting 2 these  elements is minimal. Our only other options would be to delete 4 elements to get an array of either [1] or [2].
