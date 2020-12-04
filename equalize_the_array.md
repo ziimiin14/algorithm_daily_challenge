@@ -10,14 +10,16 @@ Complete the equalizeArray function in the editor below. It must return an integ
 
 equalizeArray has the following parameter(s):
 
-arr: an array of integers
+- arr: an array of integers
 
 ## Input Format
 
-The first line contains an integer , the number of elements in .
-The next line contains  space-separated integers .
+The first line contains an integer **n**, the number of elements in **arr** .
+The next line contains **n** space-separated integers **arr[i]**.
 
-Constraints
+## Constraints
+
+- 1 \leq n \leq 100
 
 Output Format
 
