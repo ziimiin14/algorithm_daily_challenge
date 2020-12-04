@@ -19,7 +19,7 @@ The next line contains **n** space-separated integers **arr[i]**.
 
 ## Constraints
 
-- 1 \leq n \leq 100
+- 1 &le; n &le; 100
 
 Output Format
 
