@@ -21,29 +21,34 @@ def getWays(n, c):
     table[0] = 1
     
     for i in range(m):
+        
         for j in range(c[i],n+1):
             table[j] += table[j-c[i]]
+        print(table)
     
     return table[n]
                 
     # Write your code here
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+# if __name__ == '__main__':
+#     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-    first_multiple_input = input().rstrip().split()
+#     first_multiple_input = input().rstrip().split()
 
-    n = int(first_multiple_input[0])
+#     n = int(first_multiple_input[0])
 
-    m = int(first_multiple_input[1])
+#     m = int(first_multiple_input[1])
 
-    c = list(map(int, input().rstrip().split()))
+#     c = list(map(int, input().rstrip().split()))
 
-    # Print the number of ways of making change for 'n' units using coins having the values given by 'c'
+#     # Print the number of ways of making change for 'n' units using coins having the values given by 'c'
 
-    ways = getWays(n, c)
+#     ways = getWays(n, c)
 
-    fptr.write(str(ways) + '\n')
+#     fptr.write(str(ways) + '\n')
 
-    fptr.close()
-
+#     fptr.close()
+n = 4
+c = [1,2,5]
+result = getWays(n,c)
+print(result)
