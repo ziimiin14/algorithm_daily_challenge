@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Initiate parameter
 FL = 8
@@ -38,33 +39,56 @@ FoV_W = 2* wd*1000* np.tan(AoV_W/2) # mm
 # FoV_W2 = sensor_w*wd*1000/FL # mm
 
 # Read image. 
-img = cv2.imread('IMG1.bmp') 
+img = cv2.imread('IMG6.bmp') 
+template = cv2.imread('ball2.bmp')
   
 # Convert to grayscale. 
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) 
+temp_gray = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY) 
+# gray = cv2.GaussianBlur(gray, (23,23),0) 
+
+w,h = temp_gray.shape[::-1]
+
+# plt.imshow(img)
+# plt.imsave('ball2.bmp',img[760:810,430:480])
+# plt.show()
   
+methods = 'cv2.TM_CCOEFF_NORMED'
+methods = eval(methods)
+
+res = cv2.matchTemplate(gray,temp_gray,methods)
+min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
+# top_left = min_loc
+top_left = max_loc
+bottom_right = (top_left[0] + w, top_left[1] + h)
+cv2.rectangle(gray,top_left, bottom_right, 255, 2)
+plt.imshow(gray,cmap='gray')
+plt.show()
+
+# plt.imshow(img[778:808,534:564])
+# plt.show()
+
+
 # Blur using 3 * 3 kernel. 
-gray_blurred = cv2.blur(gray, (3, 3)) 
+# gray_blurred = cv2.blur(gray, (3, 3)) 
   
 # Apply Hough transform on the blurred image. 
-detected_circles = cv2.HoughCircles(gray,  
-                   cv2.HOUGH_GRADIENT, 1, 20, param1 = 50, 
-               param2 = 30, minRadius = 1, maxRadius = 40) 
-  
-print(detected_circles.shape)
+# detected_circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, 20, param1=130, param2=30, minRadius=0, maxRadius=0)
+
+# print(detected_circles.shape)
 # Draw circles that are detected. 
-if detected_circles is not None: 
+# if detected_circles is not None: 
   
-    # Convert the circle parameters a, b and r to integers. 
-    detected_circles = np.uint16(np.around(detected_circles)) 
+#     # Convert the circle parameters a, b and r to integers. 
+#     detected_circles = np.uint16(np.around(detected_circles)) 
   
-    for pt in detected_circles[0, :]: 
-        a, b, r = pt[0], pt[1], pt[2] 
+#     for pt in detected_circles[0, :]: 
+#         a, b, r = pt[0], pt[1], pt[2] 
   
-        # Draw the circumference of the circle. 
-        cv2.circle(img, (a, b), r, (0, 255, 0), 2) 
+#         # Draw the circumference of the circle. 
+#         cv2.circle(img, (a, b), r, (0, 255, 0), 2) 
   
-        # Draw a small circle (of radius 1) to show the center. 
-        cv2.circle(img, (a, b), 1, (0, 0, 255), 3) 
-        cv2.imshow("Detected Circle", img) 
-        cv2.waitKey(0) 
+#         # Draw a small circle (of radius 1) to show the center. 
+#         cv2.circle(img, (a, b), 1, (0, 0, 255), 3) 
+#         cv2.imshow("Detected Circle", img) 
+#         cv2.waitKey(0) 
