@@ -39,17 +39,30 @@ FoV_W = 2* wd*1000* np.tan(AoV_W/2) # mm
 # FoV_W2 = sensor_w*wd*1000/FL # mm
 
 # Read image. 
-img = cv2.imread('IMG6.bmp') 
-template = cv2.imread('ball2.bmp')
+img = cv2.imread('img/IMG1.bmp') 
+# img = cv2.convertScaleAbs(img,alpha=1.5,beta=20)
+template = cv2.imread('img/ball_only.bmp')
+
   
 # Convert to grayscale. 
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) 
-temp_gray = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY) 
-# gray = cv2.GaussianBlur(gray, (23,23),0) 
+temp_gray = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
 
+# blurred = cv2.GaussianBlur(gray, (15,15),0)
+# blurred = cv2.blur(gray,(3,3))
+# blurred = cv2.bilateralFilter(gray,11,25,25)
+# edges = cv2.Canny(blurred,30,30)
+edges = cv2.Sobel(gray,cv2.CV_8U,1,1,ksize=5)
+
+# detected_circles = cv2.HoughCircles(edges, cv2.HOUGH_GRADIENT, 1, 50, param1=130, param2=30, minRadius=0, maxRadius=0)
+
+
+
+
+# gray = cv2.GaussianBlur(gray, (23,23),0) 
 w,h = temp_gray.shape[::-1]
 
-# plt.imshow(img)
+# plt.imshow(gray,cmap='gray')
 # plt.imsave('ball2.bmp',img[760:810,430:480])
 # plt.show()
   
