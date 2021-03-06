@@ -15,16 +15,17 @@ def bestSum(targetSum,numbers,memo):
         remainderRes =bestSum(remainder,numbers,memo)
 
         if remainderRes != None:
-            temp = remainderRes[:]
+            temp = remainderRes.copy()
             temp.append(num)
             # for x in remainderRes:
             #     temp.append(x)
 
             # temp.append(num)
-            
+            # print(memo)
             
             if (shortestCombination == None) or (len(temp) < len(shortestCombination)):
                 shortestCombination = temp
+                
             
            
     memo[targetSum] = shortestCombination
@@ -33,8 +34,8 @@ def bestSum(targetSum,numbers,memo):
     return shortestCombination
             
 b  ={}
-print(bestSum(7,[5,3,4],b))
+print(bestSum(10,[2,4],b))
 c = {}
-print(bestSum(100,[1,2,5,25],c))
+# print(bestSum(100,[1,2,5,25],c))
 d = {}
-print(bestSum(301,[7,14],d))
+# print(bestSum(301,[7,14],d))

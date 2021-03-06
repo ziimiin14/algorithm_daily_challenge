@@ -10,11 +10,16 @@ def howSum(targetSum,numbers,memo):
     
     for number in numbers:
         remainder = targetSum-number
+        # print(number)
         remainderRes = howSum(remainder,numbers,memo)
+        # print(remainderRes)
 
         if  remainderRes !=  None:
-            remainderRes.append(number)
-            memo[targetSum] = remainderRes
+            temp = remainderRes.copy()
+            temp.append(number)
+            # print(remainderRes)
+            memo[targetSum] = temp
+            # print(targetSum,temp,memo)
             return memo[targetSum]
 
     memo[targetSum] = None
@@ -24,7 +29,7 @@ def howSum(targetSum,numbers,memo):
 
 
 b = {} 
-print(howSum(300,[7,14],b))
+print(howSum(10,[2,4],b))
 
 
              
