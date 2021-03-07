@@ -16,8 +16,8 @@ def allConstruct(target,wordBank,memo):
                 suffixWays[i].insert(0,word)
                 temp = [suffixWays[i].copy()]
                 totalArray += temp
-                # print(target)
-                # print(totalArray)
+                print(target)
+                print(totalArray)
 
 
     memo[target] = totalArray
