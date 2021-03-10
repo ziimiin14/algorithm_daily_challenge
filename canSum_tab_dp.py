@@ -8,7 +8,6 @@ def canSum_tab(targetSum,numbers):
             for x in numbers:
                 if x+i <= targetSum:
                     arr[x+i]  = True
-    print(arr)  
     return arr[targetSum]
 
 
