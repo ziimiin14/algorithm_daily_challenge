@@ -11,6 +11,20 @@ def howSum_tab(targetSum,numbers):
     print(table)
     return table[targetSum]
 
+def howSum_tab1(targetSum,numbers):
+    table = [None]*(targetSum+1)
 
-print(howSum_tab(10,[2,4]))
+    table[0] = []
+
+    for i in range(len(numbers)):
+        for j in range(numbers[i],targetSum+1):
+            if table[j-numbers[i]] != None:
+                table[j] = table[j-numbers[i]] + [numbers[i]]
+    print(table)
+    return table[targetSum]
+
+
+
+print(howSum_tab(10,[1,3]))
+print(howSum_tab1(10,[1,3]))
 
