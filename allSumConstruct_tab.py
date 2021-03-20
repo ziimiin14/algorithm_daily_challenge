@@ -25,5 +25,5 @@ def allSumConstruct_tab(targetSum,numbers):
     return table[targetSum]
 
 
-print(allSumConstruct_tab(8,[4,2]))
+print(allSumConstruct_tab(10,[4,2]))
 

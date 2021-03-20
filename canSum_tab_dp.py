@@ -12,5 +12,5 @@ def canSum_tab(targetSum,numbers):
 
 
 
-print(canSum_tab(7,[5,3,4]))
+print(canSum_tab(10,[2,4]))
         

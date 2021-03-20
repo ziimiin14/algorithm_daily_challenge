@@ -29,12 +29,11 @@ def bestSum(targetSum,numbers,memo):
             
            
     memo[targetSum] = shortestCombination
-
-    
+    # print(memo)
     return shortestCombination
             
 b  ={}
-print(bestSum(10,[2,4],b))
+print(bestSum(10,[4,1],b))
 c = {}
 # print(bestSum(100,[1,2,5,25],c))
 d = {}

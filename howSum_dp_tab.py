@@ -8,9 +8,9 @@ def howSum_tab(targetSum,numbers):
             for number in numbers:
                 if i+number<=targetSum:
                      table[i+number] = table[i] + [number]
-    # print(table)
+    print(table)
     return table[targetSum]
 
 
-print(howSum_tab(294,[7,14]))
+print(howSum_tab(10,[2,4]))
 

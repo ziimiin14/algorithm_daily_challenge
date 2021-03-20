@@ -18,5 +18,5 @@ def bestSum_tab(targetSum,numbers):
     return table[targetSum]
 
 
-print(bestSum_tab(8,[1,3,6,2,8]))
+print(bestSum_tab(8,[1,3,6,2]))
 
