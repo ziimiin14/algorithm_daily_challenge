@@ -7,14 +7,8 @@
 class Solution:
     
     def increasingBST(self, root: TreeNode) -> TreeNode:
-        def inorder(node):
-            if node:
-                inorder(node.left)
-                val.append(node.val)
-                inorder(node.right)
-        
         val = []
-        inorder(root)
+        self.__inorder(root,val)
         ans  = cur = TreeNode(None)
         
         for x in val:
@@ -22,6 +16,12 @@ class Solution:
             cur = cur.right
 
         return ans.right
+    
+    def __inorder(self,node,val):
+            if node:
+                self.__inorder(node.left,val)
+                val.append(node.val)
+                self.__inorder(node.right,val)
 
             
         
