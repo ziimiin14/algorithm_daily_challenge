@@ -2,4 +2,4 @@
 
 ## Objective
 
-Pick an algorithm question and solve it as a daily challenge
+Pick an algorithm question and solve it as a daily challenge.
